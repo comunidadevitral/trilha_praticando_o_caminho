@@ -1,0 +1,1 @@
+/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  content:\n  [\n    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',\n  ],\n  theme:\n  {\n    extend: {},\n  },\n  plugins:\n  [],\n}

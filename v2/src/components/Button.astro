@@ -1,0 +1,32 @@
+----
+// Button.astro
+---
+interface Props {
+  /** Button variant: 'primary' | 'secondary' | 'link' */
+  variant?: 'primary' | 'secondary' | 'link';
+  /** Button content */
+  children: string;
+  /** Optional href for link buttons */
+  href?: string;
+  /** Optional target for link buttons */
+  target?: string;
+}
+
+const { variant = 'primary', children, href, target } = Astro.props;
+
+---
+{href ? (
+  <a
+    class={`btn btn-${variant}`}
+    href={href}
+    target={target}
+    rel="noopener"
+    aria-label={children}
+  >
+    {children}
+  </a>
+) : (
+  <button class={`btn btn-${variant}`} aria-label={children}>
+    {children}
+  </button>
+)}

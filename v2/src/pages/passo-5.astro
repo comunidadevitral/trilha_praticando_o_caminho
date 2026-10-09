@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import raw from '../data/html/passo-5.html?raw';
+const bodyContent = raw
+  .replace(/<!DOCTYPE[^>]*>/i, '')
+  .replace(/<html[^>]*>/i, '')
+  .replace(/<\/html>/i, '')
+  .replace(/<head[\s\S]*?<\/head>/i, '')
+  .replace(/<body[^>]*>/i, '')
+  .replace(/<\/body>/i, '');
+---
+<BaseLayout>
+<div class="astro-content" set:html={bodyContent} />
+</BaseLayout>

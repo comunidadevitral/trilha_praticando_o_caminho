@@ -1,0 +1,16 @@
+----
+// Card.astro
+---
+interface Props {
+  /** Card variant: 'default' | 'locked' */
+  variant?: 'default' | 'locked';
+  /** Card children */
+  children: string;
+}
+
+const { variant = 'default', children } = Astro.props;
+
+---
+<div class={`card${variant === 'locked' ? ' locked' : ''}`}>
+  {children}
+</div>

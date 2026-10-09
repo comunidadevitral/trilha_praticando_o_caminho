@@ -1,0 +1,21 @@
+# node_modules
+v2/node_modules
+v2/.astro
+v2/dist
+
+# logs
+*.log
+v2/dev.log
+
+# env
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ignore git repos embedded
+original/**/.git
+original/**/ .git
+

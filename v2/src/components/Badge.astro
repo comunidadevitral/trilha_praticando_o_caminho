@@ -1,0 +1,27 @@
+----
+// Badge.astro
+---
+interface Props {
+  /** Badge variant: 'aberto' | 'breve' | 'numero' | 'etapa' */
+  variant?: 'aberto' | 'breve' | 'numero' | 'etapa';
+  /** Badge content */
+  children: string;
+  /** Optional step number for numero variant */
+  stepNumber?: number;
+  /** Optional etapa number for etapa variant */
+  etapaNumber?: number;
+}
+
+const { variant = 'aberto', children, stepNumber, etapaNumber } = Astro.props;
+
+let content = children;
+if (variant === 'numero' && stepNumber !== undefined) {
+  content = stepNumber.toString();
+} else if (variant === 'etapa' && etapaNumber !== undefined) {
+  content = `Etapa ${etapaNumber}`;
+}
+
+---
+<div class={`badge badge-${variant}`}>
+  {content}
+</div>

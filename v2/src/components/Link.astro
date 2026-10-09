@@ -1,0 +1,28 @@
+----
+// Link.astro
+---
+interface Props {
+  /** Link content */
+  children: string;
+  /** Link href */
+  href: string;
+  /** Whether the link is external */
+  external?: boolean;
+  /** Optional target for external links */
+  target?: string;
+  /** Optional rel for external links */
+  rel?: string;
+}
+
+const { children, href, external = false, target, rel } = Astro.props;
+
+---
+<a
+  class="link"
+  href={href}
+  target={external ? (target || '_blank') : undefined}
+  rel={external ? (rel || 'noopener') : undefined}
+  aria-label={children}
+>
+  {children}
+</a>
